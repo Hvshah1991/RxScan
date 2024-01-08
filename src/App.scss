@@ -1,0 +1,12 @@
+@import url("../src/styles/_typography.scss");
+@import url("../src/styles/_variables.scss");
+
+* {
+    font-family: "Titillium Regular";
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    background-color: #F7F8F9;
+}
