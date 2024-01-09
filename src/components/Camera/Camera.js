@@ -1,5 +1,6 @@
 import Webcam from "react-webcam";
 import { useCallback, useRef, useState } from "react";
+import axios from 'axios';
 
 const Camera = () => {
     const webcamRef = useRef(null);
@@ -7,11 +8,17 @@ const Camera = () => {
     const [mirrored, setMirrored] = useState(false);
   
     // image capture function
-    const capture = useCallback(() => {
-      const imageSrc = webcamRef.current.getScreenshot();
-      setImgSrc(imageSrc);
-      
-    }, [webcamRef]);
+    async function capture () {
+        const imageSrc = webcamRef.current.getScreenshot();
+    
+        try {
+          await axios.post('http://localhost:4000/image-captured', { image: imageSrc });
+          console.log('Image sent to server.');
+          setImgSrc(imageSrc);
+        } catch (error) {
+          console.error('Error sending image to server:', error);
+        }
+      };
 
     // image retake function
     const retake = () => {
