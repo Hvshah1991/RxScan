@@ -1,0 +1,46 @@
+@import '../../styles/global';
+
+.camera {
+
+    &__container {
+        background-color: $White;
+        width: 320px;
+        @include flexBox(column);
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 1rem;
+    }
+
+    &__border {
+        width: 280px;
+        border-top: 1px solid $Green;
+    }
+
+    &__btn-container {
+        padding-bottom: 20px;
+    }
+
+    &__btn {
+        @include body-medium;
+            background-color: $White;
+            border: 4px solid $Green;
+            border-radius: 5rem;
+            color: $Green;
+            height: 2.25rem;
+            width: 8.25rem;
+            text-decoration: none;
+
+            @include flexBox(row);
+            justify-content: center;  
+            align-items: center;
+
+            &:hover{
+                border: 4px solid $Pink;
+                border-radius: 5rem;
+                text-decoration: none;
+                color: $Pink;
+            }
+    }
+
+}
+

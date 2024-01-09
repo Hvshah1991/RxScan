@@ -1,0 +1,17 @@
+@import '../../styles/global';
+
+.footer {
+    background-color: $White;
+
+    &__wrapper {
+        @include flexBox(row);
+        justify-content: center;
+        width: 100%;
+        padding: 3.75rem 0 2.5rem 0;
+    }
+    &__text {
+        @include body-small;
+        color: $Green;
+        font-family: $regularFont;
+    }
+}

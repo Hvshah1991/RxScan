@@ -1,6 +1,7 @@
 import Webcam from "react-webcam";
-import { useCallback, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import axios from 'axios';
+import "./Camera.scss";
 
 const Camera = () => {
     const webcamRef = useRef(null);
@@ -26,36 +27,41 @@ const Camera = () => {
       };
   
     return (
-        <div className="container">
+        <div className="camera__container">
+            <div className="camera__border"></div>
         {imgSrc ? (
           <img src={imgSrc} alt="webcam" />
         ) : (
           <Webcam 
-            height={600}
-            width={600}
+            height={300}
+            width={300}
             ref={webcamRef}
             mirrored={mirrored}
             screenshotFormat="image/jpeg"
             screenshotQuality={1}
             />
         )}
-        <div className="controls">
+        <div className="camera__controls">
+        <div className="camera__block">
         <div>
           <input
+            data-index="0"
             type="checkbox"
             checked={mirrored}
             onChange={(e) => setMirrored(e.target.checked)}
           />
           <label>Mirror</label>
+          </div>
         </div>
         </div>
-        <div className="btn-container">
+        <div className="camera__btn-container">
           {imgSrc ? (
-            <button onClick={retake}>Retake photo</button>
+            <button className="camera__btn" onClick={retake}>Retake photo</button>
           ) : (
-            <button onClick={capture}>Capture photo</button>
+            <button className="camera__btn" onClick={capture}>Capture photo</button>
           )}
         </div>
+        <div className="camera__border"></div>
         </div>
     );
 };
