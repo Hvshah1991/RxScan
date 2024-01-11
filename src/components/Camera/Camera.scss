@@ -8,12 +8,19 @@
         @include flexBox(column);
         align-items: center;
         justify-content: center;
+        gap: 1rem;
         padding-bottom: 1rem;
     }
 
     &__title {
-        @include body-large;
+        @include subheader-style;
         color: $Green;
+    }
+
+    &__title-cont {
+        @include flexBox(row);
+        text-align: center;
+        width: 90%;
     }
 
     &__border {
@@ -22,7 +29,7 @@
     }
 
     &__btn-container {
-        padding-bottom: 20px;
+        padding-bottom: 0px;
     }
 
     &__btn {
@@ -111,6 +118,33 @@
         border: 3px solid;
         color: $Pink;
         border-radius: 100px;
+    }
+
+    &__detect-cont {
+        margin-top: 15px;
+        border: 1px solid $Pink;
+        width: 88vw;
+        @include flexBox(column);
+        border-radius: 20px;
+    }
+
+    &__detect {
+        color: $Pink;
+        @include subheader-style;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    &__detect-para {
+        color: $Pink;
+        @include body-medium;
+    }
+
+    &__detect-li {
+        list-style-type: none;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
 
