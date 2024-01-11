@@ -7,15 +7,20 @@ const Camera = () => {
     const webcamRef = useRef(null);
     const [imgSrc, setImgSrc] = useState(null);
     const [mirrored, setMirrored] = useState(false);
+    const [detectedLabels, setDetectedLabels] = useState([]);
   
     // image capture function
     async function capture () {
         const imageSrc = webcamRef.current.getScreenshot();
     
         try {
-          await axios.post('http://localhost:4000/image-captured', { image: imageSrc });
+            const response = await axios.post('http://localhost:4000/image-captured', { image: imageSrc });
           console.log('Image sent to server.');
           setImgSrc(imageSrc);
+
+          // Assuming the server sends back an array of detected labels
+          setDetectedLabels(response.data);
+
         } catch (error) {
           console.error('Error sending image to server:', error);
         }
@@ -24,11 +29,15 @@ const Camera = () => {
     // image retake function
     const retake = () => {
         setImgSrc(null);
+        setDetectedLabels([]);
       };
+
   
     return (
         <div className="camera__container">
-            <h1 className="camera__title">Prescription, meet scanner from the future</h1>
+            <div className="camera__title-cont">
+                <h1 className="camera__title">Prescription, meet scanner from the future</h1>
+            </div>
             <div className="camera__border"></div>
         {imgSrc ? (
           <img src={imgSrc} alt="webcam" />
@@ -53,7 +62,7 @@ const Camera = () => {
                         checked={mirrored}
                         onChange={(e) => setMirrored(e.target.checked)}
                     />
-                    <label for="scan"></label>
+                    <label></label>
                 </div>
             </div>
         </div>
@@ -64,7 +73,15 @@ const Camera = () => {
             <button className="camera__btn" onClick={capture}>Capture photo</button>
           )}
         </div>
-        <div className="camera__border"></div>
+            <div className="camera__border"></div>
+            <div className="camera__detect-cont">
+                <h2 className="camera__detect">Detected Labels</h2>
+                <ul className="camera__detect-para">
+                    {detectedLabels.map((label, index) => (
+                        <li className="camera__detect-li"key={index}>{label.description}</li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 };
