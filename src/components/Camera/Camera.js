@@ -8,6 +8,19 @@ const Camera = () => {
     const [imgSrc, setImgSrc] = useState(null);
     const [mirrored, setMirrored] = useState(false);
     const [detectedLabels, setDetectedLabels] = useState([]);
+    const [rxTermsResults, setRxTermsResults] = useState([]);
+
+    // function to check if detected labels matches the rxterms
+    const isLabelMatch = (labelText) => {
+        const lowerCaseLabelText = labelText ? labelText.toLowerCase() : '';
+    
+        return rxTermsResults.some((rxTerm) => {
+            const lowerCaseRxTerm = rxTerm[1][0] ? rxTerm[1][0].toLowerCase() : '';
+            const labelWords = lowerCaseLabelText.split(/\s+/);
+            return labelWords.some(word => lowerCaseRxTerm.includes(word));
+        });
+    };
+
   
     // image capture function
     async function capture () {
@@ -19,7 +32,8 @@ const Camera = () => {
           setImgSrc(imageSrc);
 
           // Assuming the server sends back an array of detected labels
-          setDetectedLabels(response.data);
+          setDetectedLabels(response.data.labels);
+          setRxTermsResults(response.data.rxTermsResults);
 
         } catch (error) {
           console.error('Error sending image to server:', error);
@@ -30,7 +44,8 @@ const Camera = () => {
     const retake = () => {
         setImgSrc(null);
         setDetectedLabels([]);
-      };
+        setRxTermsResults([]);
+    };
 
   
     return (
@@ -62,7 +77,7 @@ const Camera = () => {
                         checked={mirrored}
                         onChange={(e) => setMirrored(e.target.checked)}
                     />
-                    <label></label>
+                    <label for="scan"></label>
                 </div>
             </div>
         </div>
@@ -74,11 +89,28 @@ const Camera = () => {
           )}
         </div>
             <div className="camera__border"></div>
-            <div className="camera__detect-cont">
+                <div className="camera__detect-cont">
                 <h2 className="camera__detect">Detected Labels</h2>
                 <ul className="camera__detect-para">
-                    {detectedLabels.map((label, index) => (
-                        <li className="camera__detect-li"key={index}>{label.description}</li>
+                    {detectedLabels.length > 0 && (
+                        <li
+                            className={`camera__detect-li ${isLabelMatch(detectedLabels[0]?.description) ? 'highlight' : ''}`}
+                            key={0}
+                        >
+                            {detectedLabels[0]?.description}
+                        </li>
+                    )}
+                </ul>
+            </div>
+            <div className="camera__border"></div>
+            <div className="camera__rx-terms-cont">
+                <h2 className="camera__rx-terms">RxTerms Results</h2>
+                <ul className="camera__rx-terms-para">
+                    {rxTermsResults.map((result, index) => (
+                        <li className="camera__rx-terms-li" key={index}>
+                            {/* Display the relevant information from RxTerms response to get clean response*/}
+                            {result[1]}: {result[2][0]}
+                        </li>
                     ))}
                 </ul>
             </div>
