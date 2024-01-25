@@ -180,6 +180,14 @@
         padding-right: 10px;
     }
 
+    &__calendar {
+        margin-top: 15px;
+        border: 1px solid $Pink;
+        width: 88vw;
+        @include flexBox(column);
+        border-radius: 20px;
+    }
+
 
 
 }

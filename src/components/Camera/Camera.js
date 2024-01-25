@@ -1,6 +1,7 @@
 import Webcam from "react-webcam";
 import { useRef, useState } from "react";
 import axios from 'axios';
+import Calendar from "../Calendar/Calendar";
 import "./Camera.scss";
 
 const Camera = () => {
@@ -9,6 +10,7 @@ const Camera = () => {
     const [mirrored, setMirrored] = useState(false);
     const [detectedLabels, setDetectedLabels] = useState([]);
     const [rxTermsResults, setRxTermsResults] = useState([]);
+    const [selectedDate, setSelectedDate] = useState(new Date());
 
     // function to check if detected labels matches the rxterms
     const isLabelMatch = (labelText) => {
@@ -20,6 +22,10 @@ const Camera = () => {
             return labelWords.some(word => lowerCaseRxTerm.includes(word));
         });
     };
+
+    const onDateChange = (date) => {
+        setSelectedDate(date);
+      };
 
   
     // image capture function
@@ -113,6 +119,10 @@ const Camera = () => {
                         </li>
                     ))}
                 </ul>
+            </div>
+            <div className="camera__border"></div>
+            <div className="camera__calendar">
+                <Calendar selectedDate={selectedDate} onDateChange={onDateChange} />
             </div>
         </div>
     );
