@@ -27,6 +27,12 @@ function Header() {
             <p className="navbar__link-text">Home</p>
           </NavLink>
           <NavLink
+            to="/reminder"
+            className={({ isActive }) => isActive ? 'navbar__link--selected' : 'navbar__link'}
+            >
+            <p className="navbar__link-text">Reminders</p>
+          </NavLink>
+          <NavLink
             to="/about"
             className={({ isActive }) => isActive ? 'navbar__link--selected' : 'navbar__link'}
             >

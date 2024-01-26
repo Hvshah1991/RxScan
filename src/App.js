@@ -4,6 +4,7 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
+import Reminder from "./pages/Reminder/Reminder";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/reminder" element={<Reminder />} />
         </Routes>
         <Footer />
       </BrowserRouter>
