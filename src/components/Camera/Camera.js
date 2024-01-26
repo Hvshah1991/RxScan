@@ -11,7 +11,14 @@ const Camera = () => {
     const [detectedLabels, setDetectedLabels] = useState([]);
     const [rxTermsResults, setRxTermsResults] = useState([]);
     const [selectedDate, setSelectedDate] = useState(new Date());
-
+    const [reminderDetails, setReminderDetails] = useState({
+        medication: '',
+        date: null,
+        time: '',
+        frequency: '',
+      });
+    
+    
     // function to check if detected labels matches the rxterms
     const isLabelMatch = (labelText) => {
         const lowerCaseLabelText = labelText ? labelText.toLowerCase() : '';
@@ -24,8 +31,22 @@ const Camera = () => {
     };
 
     const onDateChange = (date) => {
-        setSelectedDate(date);
-      };
+        setReminderDetails((prevDetails) => ({
+          ...prevDetails,
+          date: date instanceof Date ? date : new Date(date),
+        }));
+    };
+    
+    const onTimeChange = (field, value) => {
+        setReminderDetails((prevDetails) => ({
+            ...prevDetails,
+            time: { ...prevDetails.time, [field]: value },
+        }));
+    };
+    
+    const onFrequencyChange = (frequency) => {
+        setReminderDetails((prevDetails) => ({ ...prevDetails, frequency }));
+    };
 
   
     // image capture function
@@ -37,10 +58,31 @@ const Camera = () => {
           console.log('Image sent to server.');
           setImgSrc(imageSrc);
 
-          // Assuming the server sends back an array of detected labels
-          setDetectedLabels(response.data.labels);
-          setRxTermsResults(response.data.rxTermsResults);
+            // Detected labels
+            const labels = response.data.labels;
+            setDetectedLabels(labels);
+            // Medicine name for Reminders
+            const medicineNames = labels.map(label => label.description);
 
+            // Setting Reminders
+            const newReminderDetails = {
+                medication: medicineNames.join(', '),
+                date: new Date(selectedDate),
+                time: reminderDetails.time,
+                frequency: reminderDetails.frequency,
+            };
+
+            // Storing the Reminders in local storage
+            const storedReminders = JSON.parse(localStorage.getItem('reminders')) || [];
+            storedReminders.push(newReminderDetails);
+            localStorage.setItem('reminders', JSON.stringify(storedReminders));
+
+
+            // Setting the Reminder details state
+            setReminderDetails(newReminderDetails);
+            // RxTerms Results
+            setRxTermsResults(response.data.rxTermsResults);
+          
         } catch (error) {
           console.error('Error sending image to server:', error);
         }
@@ -122,7 +164,13 @@ const Camera = () => {
             </div>
             <div className="camera__border"></div>
             <div className="camera__calendar">
-                <Calendar selectedDate={selectedDate} onDateChange={onDateChange} />
+            <Calendar
+                selectedDate={selectedDate}
+                onDateChange={onDateChange}
+                reminderDetails={reminderDetails}
+                onTimeChange={onTimeChange}
+                onFrequencyChange={onFrequencyChange}
+                />
             </div>
         </div>
     );
