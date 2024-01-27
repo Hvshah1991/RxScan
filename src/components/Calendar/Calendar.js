@@ -27,11 +27,17 @@ const Calendar = ({
       { value: 'Every Other Day', label: 'Every Other Day' },
       { value: 'Weekly', label: 'Weekly' },
     ];
+
+    // Function to handle date change
+    const handleDateChange = (date) => {
+        const selectedDate = new Date(date);
+        onDateChange(selectedDate);
+    };
   
     return (
       <div>
         <h2>Medication Reminders Calendar</h2>
-        <ReactCalendar onChange={onDateChange} value={selectedDate} />
+        <ReactCalendar onChange={handleDateChange} value={selectedDate} />
         <div>
           <label htmlFor="time">Time:</label>
           <div>

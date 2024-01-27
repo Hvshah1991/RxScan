@@ -31,10 +31,7 @@ const Camera = () => {
     };
 
     const onDateChange = (date) => {
-        setReminderDetails((prevDetails) => ({
-          ...prevDetails,
-          date: date instanceof Date ? date : new Date(date),
-        }));
+        setSelectedDate(date);
     };
     
     const onTimeChange = (field, value) => {
@@ -61,16 +58,19 @@ const Camera = () => {
             // Detected labels
             const labels = response.data.labels;
             setDetectedLabels(labels);
-            // Medicine name for Reminders
-            const medicineNames = labels.map(label => label.description);
+
+            // Medicine names showing in Reminders Component
+            const medicineName = labels.length > 0 ? labels[0].description.trim() : '';
 
             // Setting Reminders
             const newReminderDetails = {
-                medication: medicineNames.join(', '),
-                date: new Date(selectedDate),
+                medications: medicineName,
+                date: selectedDate,
                 time: reminderDetails.time,
                 frequency: reminderDetails.frequency,
             };
+
+            console.log('New Reminder Details:', newReminderDetails);
 
             // Storing the Reminders in local storage
             const storedReminders = JSON.parse(localStorage.getItem('reminders')) || [];
