@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import "./Reminders.scss";
+
 const Reminders = () => {
   const [reminders, setReminders] = useState([]);
 
@@ -21,21 +23,23 @@ const Reminders = () => {
 
 
   return (
-    <div>
-      <h2>Your Medication Reminders</h2>
-      <ul>
+    <div className='reminders'>
+      <h2 className='reminders__title'>Your Medication Reminders</h2>
+      <ul className='reminders__main'>
         {reminders.map((reminder, index) => {
           console.log('Is date instance of Date?', reminder.date instanceof Date);
           return (
-            <li key={index}>
-              <strong>Medication:</strong> {reminder.medications}, <strong>Date:</strong>{' '}
+            <li className='reminders__sub' key={index}>
+              <strong className='reminders__med'>Medication:</strong> {reminder.medications}, <strong className='reminders__date'>Date:</strong>{' '}
               {reminder.date instanceof Date ? reminder.date.toLocaleDateString() : 'Invalid Date'},
-              <strong>Time:</strong> {reminder.time.hour}:{reminder.time.minute}, <strong>Frequency:</strong> {reminder.frequency}
+              <strong className='reminders__time'>Time:</strong> {reminder.time.hour}:{reminder.time.minute}, <strong className='reminders__freq'>Frequency:</strong> {reminder.frequency}
             </li>
           );
         })}
       </ul>
-      <button onClick={clearReminders}>Clear Reminders</button>
+      <div className='reminders__cont'>
+        <button className='reminders__button' onClick={clearReminders}>Clear Reminders</button>
+      </div>
     </div>
   );
 };
