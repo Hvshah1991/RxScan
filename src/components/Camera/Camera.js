@@ -12,7 +12,7 @@ const Camera = () => {
     const [rxTermsResults, setRxTermsResults] = useState([]);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [reminderDetails, setReminderDetails] = useState({
-        medication: '',
+        medications: '',
         date: null,
         time: '',
         frequency: '',
@@ -98,6 +98,17 @@ const Camera = () => {
   
     return (
         <div className="camera__container">
+            <div className="camera__border"></div>
+            <div className="camera__calendar">
+            <Calendar
+                selectedDate={selectedDate}
+                onDateChange={onDateChange}
+                reminderDetails={reminderDetails}
+                onTimeChange={onTimeChange}
+                onFrequencyChange={onFrequencyChange}
+                />
+            </div>
+            <div className="camera__border"></div>
             <div className="camera__title-cont">
                 <h1 className="camera__title">Prescription, meet scanner from the future</h1>
             </div>
@@ -136,42 +147,43 @@ const Camera = () => {
             <button className="camera__btn" onClick={capture}>Capture photo</button>
           )}
         </div>
+            {/* Detected Labels */}
             <div className="camera__border"></div>
-                <div className="camera__detect-cont">
+            <div className="camera__detect-cont">
                 <h2 className="camera__detect">Detected Labels</h2>
                 <ul className="camera__detect-para">
                     {detectedLabels.length > 0 && (
+                    detectedLabels.map((label, index) => (
                         <li
-                            className={`camera__detect-li ${isLabelMatch(detectedLabels[0]?.description) ? 'highlight' : ''}`}
-                            key={0}
+                        className={`camera__detect-li ${isLabelMatch(label.description) ? 'highlight' : ''}`}
+                        key={index}
                         >
-                            {detectedLabels[0]?.description}
+                        {label.description}
                         </li>
+                    ))
+                    )}
+                    {detectedLabels.length === 0 && (
+                    <li className="camera__detect-li">No labels detected</li>
                     )}
                 </ul>
             </div>
+            {/* RxTerms Results */}
             <div className="camera__border"></div>
             <div className="camera__rx-terms-cont">
                 <h2 className="camera__rx-terms">RxTerms Results</h2>
                 <ul className="camera__rx-terms-para">
-                    {rxTermsResults.map((result, index) => (
+                    {rxTermsResults.length > 0 ? (
+                    rxTermsResults.map((result, index) => (
                         <li className="camera__rx-terms-li" key={index}>
-                            {/* Display the relevant information from RxTerms response to get clean response*/}
-                            {result[1]}: {result[2][0]}
+                        {result[1]}: {result[2][0]}
                         </li>
-                    ))}
+                    ))
+                    ) : (
+                    <li className="camera__rx-terms-li">No RxTerms results available</li>
+                    )}
                 </ul>
             </div>
             <div className="camera__border"></div>
-            <div className="camera__calendar">
-            <Calendar
-                selectedDate={selectedDate}
-                onDateChange={onDateChange}
-                reminderDetails={reminderDetails}
-                onTimeChange={onTimeChange}
-                onFrequencyChange={onFrequencyChange}
-                />
-            </div>
         </div>
     );
 };

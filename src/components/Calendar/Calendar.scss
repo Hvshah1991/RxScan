@@ -1,0 +1,81 @@
+@import '../../styles/global';
+
+// React Calendar styling override
+
+.react-calendar {
+    background-color: $White !important;
+    border: 3px solid #333;
+    border-radius: 5%;
+}
+  
+.react-calendar__tile {
+    color: #333;
+}
+  
+.react-calendar__tile--active {
+    background-color: $Pink !important;
+    color: #fff !important;
+}
+
+.react-calendar__tile--now {
+    background-color: $Green !important;
+}
+
+.react-calendar__tile--active:focus {
+    background-color: $Pink !important;
+}
+
+// Calendar Overall component styling
+
+.calendar {
+
+    padding-bottom: 1rem;
+
+    &__title {
+        @include header-style;
+        color: $Green;
+    }
+
+    &__cont {
+        @include flexBox(row);
+        align-items: center;
+        padding-bottom: 0.5rem;
+    }
+
+    &__icon {
+        width: 3rem;
+    }
+
+    &__time-cont {
+        @include flexBox(column);
+        width: 47%;
+    }
+
+    &__freq-cont {
+        @include flexBox(column);
+        width: 47%;
+    }
+
+    &__hm-cont {
+        @include flexBox(row);
+    }
+
+    &__add-cont {
+        @include flexBox(row);
+        justify-content: center;
+    }
+
+    &__time-label {
+        padding-bottom: 0.25rem;
+        padding-top: 0.5rem;
+        @include body-large;
+        font-weight: 600;
+    }
+
+    &__freq-label {
+        padding-bottom: 0.25rem;
+        padding-top: 0.5rem;
+        @include body-large;
+        font-weight: 600;
+    }
+}

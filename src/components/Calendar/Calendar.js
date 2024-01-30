@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import ReactCalendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import "./Calendar.scss";
+import CalendarIcon from "../../assets/images/icons/rxscan_2.png"
 
 const Calendar = ({
     selectedDate,
@@ -35,12 +37,20 @@ const Calendar = ({
     };
   
     return (
-      <div>
-        <h2>Medication Reminders Calendar</h2>
+      <div className="calendar">
+        <div className='calendar__cont'>
+            <h2 className="calendar__title">Calendar</h2>
+            <img
+                className="calendar__icon"
+                src={CalendarIcon}
+                alt="calendar-icon"
+                />
+        </div>
         <ReactCalendar onChange={handleDateChange} value={selectedDate} />
-        <div>
-          <label htmlFor="time">Time:</label>
-          <div>
+        <div className='calendar__add-cont'>
+        <div className='calendar__time-cont'>
+          <label className='calendar__time-label' htmlFor="time">Time:</label>
+          <div className='calendar__hm-cont'>
             <select
               id="hour"
               value={reminderDetails.hour}
@@ -64,10 +74,10 @@ const Calendar = ({
                 </option>
               ))}
             </select>
-          </div>
+            </div>
         </div>
-        <div>
-          <label htmlFor="frequency">Frequency:</label>
+        <div className='calendar__freq-cont'>
+          <label className='calendar__freq-label' htmlFor="frequency">Frequency:</label>
           <select
             id="frequency"
             value={reminderDetails.frequency}
@@ -79,6 +89,7 @@ const Calendar = ({
               </option>
             ))}
           </select>
+        </div>
         </div>
       </div>
     );
