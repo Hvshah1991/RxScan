@@ -3,6 +3,9 @@ import { useRef, useState } from "react";
 import axios from 'axios';
 import Calendar from "../Calendar/Calendar";
 import "./Camera.scss";
+import CameraIcon from "../../assets/images/icons/rxscan_1.png";
+import LabelsIcon from "../../assets/images/icons/rxscan_4.png";
+import RxTermsIcon from "../../assets/images/icons/rxscan_5.png";
 
 const Camera = () => {
     const webcamRef = useRef(null);
@@ -113,11 +116,19 @@ const Camera = () => {
                 <h1 className="camera__title">Prescription, meet scanner from the future</h1>
             </div>
             <div className="camera__border"></div>
+            <div className="camera__scan-cont">
+                <h1 className="camera__scan">Scan</h1>
+                <img
+                    className="camera__icon"
+                    src={CameraIcon}
+                    alt="camera-icon"
+                    />
+            </div>
         {imgSrc ? (
           <img src={imgSrc} alt="webcam" />
         ) : (
           <Webcam 
-            height={300}
+            height={240}
             width={300}
             ref={webcamRef}
             mirrored={mirrored}
@@ -150,7 +161,14 @@ const Camera = () => {
             {/* Detected Labels */}
             <div className="camera__border"></div>
             <div className="camera__detect-cont">
-                <h2 className="camera__detect">Detected Labels</h2>
+                <div className="camera__detect-wrap">
+                    <h2 className="camera__detect">Detected Labels</h2>
+                    <img
+                        className="camera__small-icon"
+                        src={LabelsIcon}
+                        alt="labels-icon"
+                        />
+                </div>
                 <ul className="camera__detect-para">
                     {detectedLabels.length > 0 && (
                     detectedLabels.map((label, index) => (
@@ -170,7 +188,14 @@ const Camera = () => {
             {/* RxTerms Results */}
             <div className="camera__border"></div>
             <div className="camera__rx-terms-cont">
-                <h2 className="camera__rx-terms">RxTerms Results</h2>
+                <div className="camera__rx-terms-wrap">
+                    <h2 className="camera__rx-terms">RxTerms Results</h2>
+                    <img
+                        className="camera__small-icon"
+                        src={RxTermsIcon}
+                        alt="Rxterms-icon"
+                        />
+                </div>
                 <ul className="camera__rx-terms-para">
                     {rxTermsResults.length > 0 ? (
                     rxTermsResults.map((result, index) => (

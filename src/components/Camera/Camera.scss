@@ -8,7 +8,7 @@
         @include flexBox(column);
         align-items: center;
         justify-content: center;
-        gap: 1rem;
+        gap: 0.5rem;
         padding-bottom: 1rem;
     }
 
@@ -17,10 +17,25 @@
         color: $Green;
     }
 
+    &__icon {
+        width: 3rem;
+    }
+
+    &__scan-cont {
+        @include flexBox(row);
+        align-items: center;
+        width: 90%;
+    }
+
     &__title-cont {
         @include flexBox(row);
         text-align: center;
         width: 90%;
+    }
+
+    &__scan {
+        @include header-style;
+        color: $Green;
     }
 
     &__border {
@@ -29,7 +44,7 @@
     }
 
     &__btn-container {
-        padding-bottom: 0px;
+        padding-bottom: 0.5rem;
     }
 
     &__btn {
@@ -38,6 +53,7 @@
             border: 4px solid $Green;
             border-radius: 5rem;
             color: $Green;
+            font-weight: 600;
             height: 2.25rem;
             width: 8.25rem;
             text-decoration: none;
@@ -63,8 +79,9 @@
 
     &__caption {
         align-self: center;
-        color: $Pink;
+        color: $Green;
         @include body-large;
+        font-weight: 600;
     }
 
 
@@ -126,6 +143,18 @@
         width: 88vw;
         @include flexBox(column);
         border-radius: 20px;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    &__small-icon {
+        width: 2rem;
+    }
+
+    &__detect-wrap {
+        @include flexBox(row);
+        align-items: center;
+        justify-content: center;
     }
 
     &__detect {
@@ -159,6 +188,8 @@
         width: 88vw;
         @include flexBox(column);
         border-radius: 20px;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
 
     &__rx-terms {
@@ -167,6 +198,12 @@
         text-align: center;
         padding-top: 5px;
         padding-bottom: 5px;
+    }
+
+    &__rx-terms-wrap {
+        @include flexBox(row);
+        align-items: center;
+        justify-content: center;
     }
 
     &__rx-terms-para {
