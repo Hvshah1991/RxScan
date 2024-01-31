@@ -4,9 +4,19 @@
     background-color: $White;
 
     &__title {
-        @include subheader-style;
+        @include header-style;
         color: $Green;
         text-align: center;
+    }
+
+    &__cont-icon {
+        @include flexBox(row);
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__icon {
+        width: 3rem;
     }
 
     &__med {
@@ -41,6 +51,7 @@
 
     &__main {
         padding: 1rem;
+        padding-top: 0.25rem;
     }
 
 

@@ -28,7 +28,7 @@
 // Calendar Overall component styling
 
 .calendar {
-
+    width: 18rem;
     padding-bottom: 1rem;
 
     &__title {
@@ -40,6 +40,7 @@
         @include flexBox(row);
         align-items: center;
         padding-bottom: 0.5rem;
+        justify-content: center;
     }
 
     &__icon {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactCalendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import "./Calendar.scss";
-import CalendarIcon from "../../assets/images/icons/rxscan_2.png"
+import CalendarIcon from "../../assets/images/icons/rxscan_2.png";
 
 const Calendar = ({
     selectedDate,
