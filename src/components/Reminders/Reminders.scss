@@ -4,9 +4,19 @@
     background-color: $White;
 
     &__title {
-        @include subheader-style;
+        @include header-style;
         color: $Green;
         text-align: center;
+    }
+
+    &__cont-icon {
+        @include flexBox(row);
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__icon {
+        width: 3rem;
     }
 
     &__med {
@@ -33,8 +43,15 @@
         padding-top: 1rem;
     }
 
+    &__days {
+        color: $Pink;
+        @include body-large;
+        padding-top: 1rem;
+    }
+
     &__main {
         padding: 1rem;
+        padding-top: 0.25rem;
     }
 
 
@@ -50,6 +67,10 @@
         @include flexBox(row);
         justify-content: center;  
         align-items: center;
+    }
+
+    &__days-cont {
+        @include flexBox(column);
     }
 
     &__button {

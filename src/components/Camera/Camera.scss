@@ -4,7 +4,6 @@
 
     &__container {
         background-color: $White;
-        width: 320px;
         @include flexBox(column);
         align-items: center;
         justify-content: center;
@@ -15,6 +14,7 @@
     &__title {
         @include subheader-style;
         color: $Green;
+        width: 16rem;
     }
 
     &__icon {
@@ -24,12 +24,14 @@
     &__scan-cont {
         @include flexBox(row);
         align-items: center;
+        justify-content: center;
         width: 90%;
     }
 
     &__title-cont {
         @include flexBox(row);
         text-align: center;
+        justify-content: center;
         width: 90%;
     }
 
@@ -39,7 +41,7 @@
     }
 
     &__border {
-        width: 280px;
+        width: 85%;
         border-top: 1px solid $Green;
     }
 
@@ -219,7 +221,6 @@
 
     &__calendar {
         margin-top: 15px;
-        width: 88vw;
         @include flexBox(column);
     }
 

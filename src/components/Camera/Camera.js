@@ -33,6 +33,32 @@ const Camera = () => {
         });
     };
 
+    // Function to generate days to take medicine based on frequency
+    const generateDays = (frequency, selectedDate) => {
+        const days = [];
+    
+        if (frequency === 'Daily') {
+        // Add all days of the week
+        for (let i = 0; i < 7; i++) {
+            const date = new Date(selectedDate);
+            date.setDate(selectedDate.getDate() + i);
+            days.push(date.toLocaleDateString('en-US', { weekday: 'long' }));
+        }
+        } else if (frequency === 'Every Other Day') {
+        // Add every other day
+        for (let i = 0; i < 7; i += 2) {
+            const date = new Date(selectedDate);
+            date.setDate(selectedDate.getDate() + i);
+            days.push(date.toLocaleDateString('en-US', { weekday: 'long' }));
+        }
+        } else if (frequency === 'Weekly') {
+        // Add only selected day
+        days.push(selectedDate.toLocaleDateString('en-US', { weekday: 'long' }));
+        }
+    
+        return days;
+    };
+
     const onDateChange = (date) => {
         setSelectedDate(date);
     };
@@ -45,9 +71,14 @@ const Camera = () => {
     };
     
     const onFrequencyChange = (frequency) => {
-        setReminderDetails((prevDetails) => ({ ...prevDetails, frequency }));
+        const days = generateDays(frequency, selectedDate);
+      
+        setReminderDetails((prevDetails) => ({
+            ...prevDetails,
+            frequency,
+            days,
+        }));
     };
-
   
     // image capture function
     async function capture () {
@@ -71,6 +102,7 @@ const Camera = () => {
                 date: selectedDate,
                 time: reminderDetails.time,
                 frequency: reminderDetails.frequency,
+                days: generateDays(reminderDetails.frequency, selectedDate),
             };
 
             console.log('New Reminder Details:', newReminderDetails);
@@ -171,17 +203,14 @@ const Camera = () => {
                 </div>
                 <ul className="camera__detect-para">
                     {detectedLabels.length > 0 && (
-                    detectedLabels.map((label, index) => (
                         <li
-                        className={`camera__detect-li ${isLabelMatch(label.description) ? 'highlight' : ''}`}
-                        key={index}
+                            className={`camera__detect-li ${isLabelMatch(detectedLabels[0].description) ? 'highlight' : ''}`}
                         >
-                        {label.description}
+                            {detectedLabels[0].description}
                         </li>
-                    ))
                     )}
                     {detectedLabels.length === 0 && (
-                    <li className="camera__detect-li">No labels detected</li>
+                        <li className="camera__detect-li">No labels detected</li>
                     )}
                 </ul>
             </div>
