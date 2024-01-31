@@ -33,6 +33,12 @@
         padding-top: 1rem;
     }
 
+    &__days {
+        color: $Pink;
+        @include body-large;
+        padding-top: 1rem;
+    }
+
     &__main {
         padding: 1rem;
     }
@@ -50,6 +56,10 @@
         @include flexBox(row);
         justify-content: center;  
         align-items: center;
+    }
+
+    &__days-cont {
+        @include flexBox(column);
     }
 
     &__button {
