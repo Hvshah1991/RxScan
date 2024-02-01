@@ -1,0 +1,71 @@
+@import '../../styles/global';
+
+.about {
+    background-color: $White;
+    @include flexBox(column);
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &__icon {
+        width: 10rem;
+    }
+    &__cont {
+        @include flexBox(row);
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 2rem;
+    }
+
+    &__small-icon {
+        width: 3rem;
+    }
+
+    &__border {
+        width: 85%;
+        border-top: 1px solid $Green;
+    }
+
+    &__cont1 {
+        @include flexBox(row);
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__cont2 {
+        @include flexBox(row-reverse);
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        @include header-style;
+        color: $Green;
+        text-align: center;
+    }
+
+    &__subtitle1 {
+        @include subheader-style;
+        color: $Green;
+        text-align: left;
+        padding-top: 1rem;
+    }
+
+    &__subtitle2 {
+        @include subheader-style;
+        color: $Green;
+        text-align: right;
+        padding-top: 1rem;
+    }
+
+    &__text1 {
+        @include body-large;
+    }
+
+    &__text2 {
+        @include body-large;
+    }
+
+}
