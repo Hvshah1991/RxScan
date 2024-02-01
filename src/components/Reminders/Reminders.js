@@ -25,13 +25,14 @@ const Reminders = () => {
 
   return (
     <div className='reminders'>
+    <div className="reminders__border"></div>
     <div className='reminders__cont-icon'>
       <h2 className='reminders__title'>Reminders</h2>
       <img
-                className="reminders__icon"
-                src={RemindersIcon}
-                alt="reminders-icon"
-                />
+            className="reminders__icon"
+            src={RemindersIcon}
+            alt="reminders-icon"
+        />
     </div>
       <ul className='reminders__main'>
         {reminders.map((reminder, index) => {

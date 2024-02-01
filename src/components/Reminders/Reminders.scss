@@ -2,11 +2,19 @@
 
 .reminders {
     background-color: $White;
+    @include flexBox(column);
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 
     &__title {
         @include header-style;
         color: $Green;
         text-align: center;
+    }
+    &__border {
+        width: 85%;
+        border-top: 1px solid $Green;
     }
 
     &__cont-icon {
