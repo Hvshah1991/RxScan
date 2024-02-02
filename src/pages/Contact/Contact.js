@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./Contact.scss";
 
 import ContactIcon from "../../assets/images/icons/rxscan_13.png";
+import ContactPlace from "../../assets/images/rxscan_14.png";
 
 const Contact = () => {
 
@@ -31,40 +32,51 @@ const Contact = () => {
                 alt="contact-icon"
             />
             </div>
-            <form className="contact__form" onSubmit={handleSubmit}>
-                <div className="contact__form-group">
-                    <label htmlFor="name">Name:</label>
-                    <input
-                        type="text"
-                        id="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
+            <div className='contact__group'>
+                <div className='contact__img-cont'>
+                    <img
+                        className="contact__img"
+                        src={ContactPlace}
+                        alt="contact-place"
                     />
                 </div>
-                <div className="contact__form-group">
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
+                <div className='contact__form-tab'>
+                    <form className="contact__form" onSubmit={handleSubmit}>
+                        <div className="contact__form-group">
+                            <label htmlFor="name">Name:</label>
+                            <input
+                                type="text"
+                                id="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="contact__form-group">
+                            <label htmlFor="email">Email:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="contact__form-group">
+                            <label htmlFor="message">Message:</label>
+                            <textarea
+                                id="message"
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                                required
+                            ></textarea>
+                        </div>
+                        <div className='contact__but-cont'>
+                        <button type="submit">Submit</button>
+                        </div>
+                    </form>
                 </div>
-                <div className="contact__form-group">
-                    <label htmlFor="message">Message:</label>
-                    <textarea
-                        id="message"
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        required
-                    ></textarea>
-                </div>
-                <div className='contact__but-cont'>
-                <button type="submit">Submit</button>
-                </div>
-            </form>
+            </div>
         </div>
     );
 };
