@@ -14,6 +14,47 @@
         margin-bottom: 1rem;
     }
 
+    &__img-cont {
+        display: none;
+        @include tablet {
+            @include flexBox(row);
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 2rem;
+        }
+    }
+
+    &__img {
+        display: none;
+        @include tablet {
+            display: flex;
+            width: 18rem;
+        }
+        @include desktop {
+            width: 22rem;
+        }
+    }
+
+    &__group {
+        @include tablet {
+            @include flexBox(row);
+            gap: 3rem;
+        }
+        @include desktop {
+            gap: 7rem;
+        }
+    }
+
+    &__form-tab {
+        //display: none;
+        @include tablet {
+            @include flexBox(column);
+        }
+        @include desktop {
+            width: 20rem;
+        }
+    }
+
     &__cont {
         @include flexBox(row);
         align-items: center;
@@ -77,6 +118,7 @@ textarea:focus {
         height: 2.25rem;
         width: 8.25rem;
         text-decoration: none;
+        font-weight: 600;
 
         @include flexBox(row);
         justify-content: center;  

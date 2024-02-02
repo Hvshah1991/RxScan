@@ -27,6 +27,14 @@
     gap: 0.5rem;
     width: 100%;
 
+    @include tablet {
+        gap: 1rem;
+    }
+
+    @include desktop {
+        gap: 2rem;
+    }
+
     &__link{
         @include body-large;
         height: 2.25rem;
