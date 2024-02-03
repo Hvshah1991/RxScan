@@ -12,6 +12,7 @@
     &__icon {
         width: 10rem;
     }
+
     &__cont {
         @include flexBox(row);
         align-items: center;
@@ -32,12 +33,30 @@
         @include flexBox(row);
         align-items: center;
         justify-content: center;
+        margin-right: 1rem;
+
+        @include tablet {
+            margin-right: 20rem;
+        }
+
+        @include desktop {
+            margin-right: 25rem;
+        }
     }
 
     &__cont2 {
         @include flexBox(row-reverse);
         align-items: center;
         justify-content: center;
+        margin-left: 2rem;
+
+        @include tablet {
+            margin-left: 20rem;
+        }
+
+        @include desktop {
+            margin-left: 25rem;
+        }
     }
 
     &__title {
@@ -51,6 +70,13 @@
         color: $Green;
         text-align: left;
         padding-top: 1rem;
+        @include tablet {
+            margin-left: 20rem;
+        }
+
+        @include desktop {
+            margin-left: 25rem;
+        }
     }
 
     &__subtitle2 {
@@ -58,14 +84,41 @@
         color: $Green;
         text-align: right;
         padding-top: 1rem;
+        @include tablet {
+            margin-right: 20rem;
+        }
+
+        @include desktop {
+            margin-right: 25rem;
+        }
     }
 
     &__text1 {
         @include body-large;
+        width: 10rem;
+
+        @include tablet {
+            width: 15rem;
+        }
+
+        @include desktop{
+            width: 16rem;
+        }
     }
 
     &__text2 {
         @include body-large;
+        width: 10rem;
+
+
+        @include tablet {
+            width: 15rem;
+        }
+
+        @include desktop{
+            width: 18rem;
+        }
     }
+
 
 }

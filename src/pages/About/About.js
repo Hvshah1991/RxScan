@@ -22,51 +22,51 @@ const About = () => {
                 alt="about-Small-icon"
                 />
             </div>
-            <h2 className='about__subtitle2'>Scary Piece of Paper</h2>
-            <div className='about__cont1'>
-                <img
-                className="about__icon"
-                src={AboutPres}
-                alt="about-Pres-icon"
-                />
-                <p className='about__text1'>Get your handwritten prescription ready to scan.</p>
-            </div>
-            <h2 className='about__subtitle1'>Scan it!</h2>
-            <div className='about__cont2'>
-                <img
-                className="about__icon"
-                src={AboutScan}
-                alt="about-Scan-icon"
-                />
-                <p className='about__text2'>Scan your prescription with RxScan App for Optical Character Recognition (OCR)</p>
-            </div>
-            <h2 className='about__subtitle2'>Cross-check it!</h2>
-            <div className='about__cont1'>
-                <img
-                className="about__icon"
-                src={AboutCheck}
-                alt="about-Check-icon"
-                />
-                <p className='about__text1'>Verified and ready for insights.</p>
-            </div>
-            <h2 className='about__subtitle1'>NIH database</h2>
-            <div className='about__cont2'>
-                <img
-                className="about__icon"
-                src={AboutNIH}
-                alt="about-NIH-icon"
-                />
-                <p className='about__text2'>NIH’s National Library of Medicine utilised for verification.</p>
-            </div>
-            <h2 className='about__subtitle2'>Remind yourself!</h2>
-            <div className='about__cont1'>
-                <img
-                className="about__icon"
-                src={AboutRemind}
-                alt="about-Remind-icon"
-                />
-                <p className='about__text1'>Add reminders for medication at the same time. All in one solution, transcribe, verify and set reminders.</p>
-            </div>
+                    <h2 className='about__subtitle2'>Scary Piece of Paper</h2>
+                    <div className='about__cont1'>
+                        <img
+                        className="about__icon"
+                        src={AboutPres}
+                        alt="about-Pres-icon"
+                        />
+                        <p className='about__text1'>Get your handwritten prescription ready to scan.</p>
+                    </div>
+                    <h2 className='about__subtitle1'>Scan it!</h2>
+                    <div className='about__cont2'>
+                        <img
+                        className="about__icon"
+                        src={AboutScan}
+                        alt="about-Scan-icon"
+                        />
+                        <p className='about__text2'>Scan your prescription with RxScan App for Optical Character Recognition (OCR)</p>
+                    </div>
+                    <h2 className='about__subtitle2'>Cross-check it!</h2>
+                    <div className='about__cont1'>
+                        <img
+                        className="about__icon"
+                        src={AboutCheck}
+                        alt="about-Check-icon"
+                        />
+                        <p className='about__text1'>Verified and ready for insights.</p>
+                    </div>
+                    <h2 className='about__subtitle1'>NIH database</h2>
+                    <div className='about__cont2'>
+                        <img
+                        className="about__icon"
+                        src={AboutNIH}
+                        alt="about-NIH-icon"
+                        />
+                        <p className='about__text2'>NIH’s National Library of Medicine utilised for verification.</p>
+                    </div>
+                    <h2 className='about__subtitle2'>Remind yourself!</h2>
+                    <div className='about__cont1'>
+                        <img
+                        className="about__icon"
+                        src={AboutRemind}
+                        alt="about-Remind-icon"
+                        />
+                        <p className='about__text1'>Add reminders for medication at the same time. All in one solution, transcribe, verify and set reminders.</p>
+                    </div>
         </div>
     );
 };
