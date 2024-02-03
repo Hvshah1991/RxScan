@@ -15,6 +15,14 @@
         @include subheader-style;
         color: $Green;
         width: 16rem;
+        @include tablet {
+            width: 20rem;
+        }
+        @include desktop {
+            width: 30rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
     }
 
     &__icon {
