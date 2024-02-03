@@ -23,6 +23,13 @@
         justify-content: center;
     }
 
+    &__no-reminders {
+        @include body-large;
+        color: $Pink;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
     &__icon {
         width: 3rem;
     }

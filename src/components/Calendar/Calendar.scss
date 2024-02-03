@@ -64,6 +64,7 @@
     &__add-cont {
         @include flexBox(row);
         justify-content: center;
+        gap: 1rem;
     }
 
     &__time-label {
@@ -78,5 +79,29 @@
         padding-top: 0.5rem;
         @include body-large;
         font-weight: 600;
+    }
+
+    &__freq-cont select {
+        width: 100%;
+        padding: 4px;
+        border: 2px solid $Green;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    &__freq-cont select:focus {
+        border-color: $Pink;
+    }
+
+    &__hm-cont select {
+        width: 100%;
+        padding: 4px;
+        border: 2px solid $Green;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    &__hm-cont select:focus {
+        border-color: $Pink;
     }
 }
