@@ -1,0 +1,74 @@
+@import '../../styles/global';
+
+.header{
+    background-color: $White;
+    @include flexBox(column);
+    align-items: center;
+    padding: 1.5rem 1rem;
+    padding-bottom: 2.5rem;
+
+    &__left{
+        padding: 0;
+        margin-bottom: 1.5rem;
+        @include flexBox(row);
+        align-items: center;
+    }
+
+    &__logo{
+        width: 12rem;
+    }
+
+}
+
+.navbar{
+    @include flexBox(row);
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+
+    @include tablet {
+        gap: 1rem;
+    }
+
+    @include desktop {
+        gap: 2rem;
+    }
+
+    &__link{
+        @include body-large;
+        height: 2.25rem;
+        width: 5.25rem;
+        text-decoration: none;
+        color: $Green;
+
+        @include flexBox(row);
+        justify-content: center;  
+        align-items: center;     
+        
+
+        &:hover{
+            border: 4px solid $Green;
+            border-radius: 5rem;
+            text-decoration: none;
+        }
+
+        &--selected{
+            @include body-large;
+            border: 4px solid $Pink;
+            border-radius: 5rem;
+            color: $Pink;
+            height: 2.25rem;
+            width: 7.25rem;
+            text-decoration: none;
+
+            @include flexBox(row);
+            justify-content: center;  
+            align-items: center;
+        }
+
+        &-text{
+            margin:0;
+        }
+    }
+}

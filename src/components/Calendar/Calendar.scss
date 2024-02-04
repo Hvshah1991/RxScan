@@ -1,0 +1,131 @@
+@import '../../styles/global';
+
+// React Calendar styling override
+
+.react-calendar {
+    background-color: $White !important;
+    border: 3px solid #333;
+    border-radius: 5%;
+
+    @include tablet {
+        width: 25rem;
+        border-radius: 2%;
+    }
+
+    @include desktop {
+        width: 30rem;
+        border-radius: 2%;
+    }
+}
+  
+.react-calendar__tile {
+    color: #333;
+}
+  
+.react-calendar__tile--active {
+    background-color: $Pink !important;
+    color: #fff !important;
+}
+
+.react-calendar__tile--now {
+    background-color: $Green !important;
+}
+
+.react-calendar__tile--active:focus {
+    background-color: $Pink !important;
+}
+
+// Calendar Overall component styling
+
+.calendar {
+    width: 18rem;
+    padding-bottom: 1rem;
+
+    @include tablet {
+        width: 25rem;
+    }
+
+    @include desktop {
+        width: 30rem;
+    }
+
+    &__title {
+        @include header-style;
+        color: $Green;
+    }
+
+    &__cont {
+        @include flexBox(row);
+        align-items: center;
+        padding-bottom: 1rem;
+        justify-content: center;
+    }
+
+    &__icon {
+        width: 3rem;
+    }
+
+    &__time-cont {
+        @include flexBox(column);
+        width: 47%;
+    }
+
+    &__freq-cont {
+        @include flexBox(column);
+        width: 47%;
+    }
+
+    &__hm-cont {
+        @include flexBox(row);
+    }
+
+    &__add-cont {
+        @include flexBox(row);
+        justify-content: center;
+        gap: 1rem;
+        @include tablet {
+            gap: 8rem;
+        }
+        @include desktop {
+            gap: 10rem;
+        }
+    }
+
+    &__time-label {
+        padding-bottom: 0.25rem;
+        padding-top: 0.5rem;
+        @include body-large;
+        font-weight: 600;
+    }
+
+    &__freq-label {
+        padding-bottom: 0.25rem;
+        padding-top: 0.5rem;
+        @include body-large;
+        font-weight: 600;
+    }
+
+    &__freq-cont select {
+        width: 100%;
+        padding: 4px;
+        border: 2px solid $Green;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    &__freq-cont select:focus {
+        border-color: $Pink;
+    }
+
+    &__hm-cont select {
+        width: 100%;
+        padding: 4px;
+        border: 2px solid $Green;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    &__hm-cont select:focus {
+        border-color: $Pink;
+    }
+}
