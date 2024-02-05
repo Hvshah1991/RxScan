@@ -1,18 +1,18 @@
-# <img src="/src/assets/images/logo/rxscanlogo.jpg" width="50">
+# <img src="/src/assets/images/logo/rxscanlogo.jpg" width="100">
 ## Capstone Overview
 
 ### App Screenshots
 
 <p float="left">
-<img src="./assets/images/Home1.png" width="250">
-<img src="./assets/images/Home2.png" width="250">
-<img src="./assets/images/Reminders1.png" width="250">
+<img src="src/assets/images/Home1.png" width="250">
+<img src="src/assets/images/Home2.png" width="250">
+<img src="src/assets/images/Reminders1.png" width="250">
 </p>
 <p float="left">
-<img src="./assets/images/About1.png" width="250">
-<img src="./assets/images/About2.png" width="250">
-<img src="./assets/images/Contact1.png" width="250">
-<img src="./assets/images/Contact2.png" width="250">
+<img src="src/assets/images/About1.png" width="250">
+<img src="src/assets/images/About2.png" width="250">
+<img src="src/assets/images/Contact1.png" width="250">
+<img src="src/assets/images/Contact2.png" width="250">
 </p>
 
 
