@@ -1,5 +1,9 @@
 ## Capstone Overview
 
+### App Screenshots
+
+
+
 ### Description
 
 RxScan – helps the user to check doctor prescriptions. It’s converts handwritten
@@ -32,12 +36,29 @@ Pain-points:
 
 ### Tech Stack and APIs
 
-● Technologies that will be used in solution:
-○ GoogleVision(CloudVisionAPI)–Imagedetectionthroughmachine
-learning
-● Libraries that will be used in this project:
-○ React-webcam
-○ CalendarJSorsimilarcalendarlibraries.Stillresearchingonthispart.
-● APIs/Web:
-○ NationalLibraryofMedicine:ClinicalTableSearchService
+Technologies that will be used in solution:
+- GoogleVision(CloudVisionAPI)–Image detection through machine learning
+Libraries that will be used in this project:
+- React-webcam
+- CalendarJSorsimilarcalendarlibraries.Stillresearchingonthispart.
+APIs/Web:
+- National Library of Medicine: Clinical Table Search Service
 This API provides access to the RxTerms Display_Name field, and provides the associated list of strengths and forms as a pre-built list for each drug: https://clinicaltables.nlm.nih.gov/apidoc/rxterms/v3/doc.html#params
+
+## Help
+
+Any advise or help regarding issues, you can contact: harshvshah.22@gmail.com
+
+## Authors
+
+Contributors names and contact info:
+* Harsh Shah [@_AIARXR](https://twitter.com/_AIARXR)
+
+## License
+
+This project is licensed under the MIT License.
+
+## Version History! :tada:
+
+* 0.1
+    * Initial Release
