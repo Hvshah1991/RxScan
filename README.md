@@ -1,4 +1,4 @@
-# <img src="/src/assets/images/logo/rxscanlogo.jpg" width="100">
+# <img src="/src/assets/images/logo/rxscanlogo.jpg" width="125">
 ## Capstone Overview
 
 ### App Screenshots
@@ -56,6 +56,15 @@ Libraries that will be used in this project:
 APIs/Web:
 - National Library of Medicine: Clinical Table Search Service
 This API provides access to the RxTerms Display_Name field, and provides the associated list of strengths and forms as a pre-built list for each drug: https://clinicaltables.nlm.nih.gov/apidoc/rxterms/v3/doc.html#params
+
+## Back-End Start-Up
+* You will need to also start the server of repo: https://github.com/Hvshah1991/RxScan-API
+
+* Install nodemon and in your terminal: npx nodemon index.js - this will start the server
+
+* Also, don't forget to set the .env file per your convenience. Choose the port of your preference.
+
+* The back-end server should be running for it to communicate with Google's Vision API.
 
 ## Help
 
