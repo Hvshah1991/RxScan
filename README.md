@@ -1,4 +1,4 @@
-# <img src="../assets/images/logo/rxscanlogo.jpg" width="50">
+# <img src="../src/assets/images/logo/rxscanlogo.jpg" width="50">
 ## Capstone Overview
 
 ### App Screenshots
